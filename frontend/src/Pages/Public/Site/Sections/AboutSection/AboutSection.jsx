@@ -18,7 +18,7 @@ export default function AboutSection() {
                             <FaCheck />
                         </div>
                         <div className={style.BadgeText}>
-                            <h4>4+ Anos</h4>
+                            <h4>+4 Anos</h4>
                             <span>de Experiência</span>
                         </div>
                     </div>

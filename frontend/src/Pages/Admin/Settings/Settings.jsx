@@ -21,7 +21,7 @@ export default function Settings() {
     const [backupProgress, setBackupProgress] = useState(0)
     const [backups, setBackups] = useState([])
     const [config, setConfig] = useState(null)
-    const [loading, setLoading] = useState(false)
+   const [loading, setLoading] = useState(false)
     const [currentColor, setCurrentColor] = useState(localStorage.getItem('primary-color') || '#0ea5e9')
 
     const palettes = [
@@ -113,8 +113,8 @@ export default function Settings() {
             setLoading(false)
         }
     }
-
-    const handleSaveConfig = async () => {
+/* Desabilidado pois o secretario nao pode mudar dados da escolar */
+    /*const handleSaveConfig = async () => {
         setLoading(true)
         try {
             const configId = config?.id
@@ -131,7 +131,7 @@ export default function Settings() {
         } finally {
             setLoading(false)
         }
-    }
+    }*/
 
     const handleRunBackup = async () => {
         setIsBackingUp(true)
@@ -217,7 +217,7 @@ export default function Settings() {
                                         <div className={style.FileInfo}>
                                             <h4>Logótipo Institucional</h4>
                                             <input type="file" id="logo-up" hidden onChange={(e) => handleFileUpload(e, 'logo')} />
-                                            <label htmlFor="logo-up" className={style.UploadBtnSmall}>Alterar</label>
+                                          {/*  <label htmlFor="logo-up" className={style.UploadBtnSmall}>Alterar</label>*/}
                                         </div>
                                     </div>
 
@@ -228,7 +228,17 @@ export default function Settings() {
                                         <div className={style.FileInfo}>
                                             <h4>Assinatura do Diretor</h4>
                                             <input type="file" id="sign-up" hidden onChange={(e) => handleFileUpload(e, 'assinatura_director')} />
-                                            <label htmlFor="sign-up" className={style.UploadBtnSmall}>Alterar</label>
+                                        {/*    <label htmlFor="sign-up" className={style.UploadBtnSmall}>Alterar</label>*/}
+                                        </div>
+                                    </div>
+                                    <div className={style.FileUploadCard}>
+                                        <div className={style.FilePreview}>
+                                            {config?.assinatura_director_pedagogico ? <img src={config.assinatura_director_pedagogico} alt="Assinatura" /> : <FaPenNib />}
+                                        </div>
+                                        <div className={style.FileInfo}>
+                                            <h4>Assinatura do Diretor Pedagogico</h4>
+                                            <input type="file" id="sign-up" hidden onChange={(e) => handleFileUpload(e, 'assinatura_director')} />
+                                        {/*    <label htmlFor="sign-up" className={style.UploadBtnSmall}>Alterar</label>*/}
                                         </div>
                                     </div>
 
@@ -239,7 +249,7 @@ export default function Settings() {
                                         <div className={style.FileInfo}>
                                             <h4>Carimbo Oficial</h4>
                                             <input type="file" id="stamp-up" hidden onChange={(e) => handleFileUpload(e, 'carimbo_instituicao')} />
-                                            <label htmlFor="stamp-up" className={style.UploadBtnSmall}>Alterar</label>
+                                            {/*<label htmlFor="stamp-up" className={style.UploadBtnSmall}>Alterar</label>*/}
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +257,7 @@ export default function Settings() {
                                 <div className={style.FormGrid}>
                                     <div className={style.InputGroup}>
                                         <label>Nome do Colégio / Escola</label>
-                                        <input
+                                        <input readOnly
                                             type="text"
                                             value={config?.nome_instituicao || ''}
                                             onChange={(e) => setConfig({ ...config, nome_instituicao: e.target.value })}
@@ -255,7 +265,7 @@ export default function Settings() {
                                     </div>
                                     <div className={style.InputGroup}>
                                         <label>Director Geral (Instituição)</label>
-                                        <input
+                                        <input readOnly
                                             type="text"
                                             placeholder="Nome completo do Diretor"
                                             value={config?.director_geral || ''}
@@ -264,7 +274,7 @@ export default function Settings() {
                                     </div>
                                     <div className={style.InputGroup}>
                                         <label>NIF / Identificação Fiscal</label>
-                                        <input
+                                        <input readOnly
                                             type="text"
                                             value={config?.nif || ''}
                                             onChange={(e) => setConfig({ ...config, nif: e.target.value })}
@@ -272,7 +282,7 @@ export default function Settings() {
                                     </div>
                                     <div className={style.InputGroupFull}>
                                         <label>Endereço Completo</label>
-                                        <input
+                                        <input readOnly
                                             type="text"
                                             value={config?.endereco || ''}
                                             onChange={(e) => setConfig({ ...config, endereco: e.target.value })}
@@ -281,6 +291,7 @@ export default function Settings() {
                                     <div className={style.InputGroup}>
                                         <label>Telefone</label>
                                         <input
+                                        readOnly
                                             type="text"
                                             value={config?.telefone || ''}
                                             onChange={(e) => setConfig({ ...config, telefone: e.target.value })}
@@ -289,15 +300,18 @@ export default function Settings() {
                                     <div className={style.InputGroup}>
                                         <label>Email Oficial</label>
                                         <input
+                                        readOnly
                                             type="email"
                                             value={config?.email_oficial || ''}
                                             onChange={(e) => setConfig({ ...config, email_oficial: e.target.value })}
                                         />
                                     </div>
                                 </div>
+                                {/* btn desabilitado pois os secretarios nao podem mudar dados da escolar */}
+                                {/*
                                 <button className={style.SaveButton} onClick={handleSaveConfig} disabled={loading}>
                                     {loading ? 'Processando...' : 'Salvar Alterações'}
-                                </button>
+                                </button>*/}
                             </div>
                         )}
 

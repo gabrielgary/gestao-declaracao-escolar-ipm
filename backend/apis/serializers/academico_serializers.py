@@ -11,7 +11,7 @@ class SalaSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Sala
-        fields = ['id_sala', 'numero_sala', 'capacidade_alunos', 'img_path', 'criado_em', 'atualizado_em']
+        fields = ['id_sala', 'numero_sala', 'capacidade_alunos', 'criado_em', 'atualizado_em']
         read_only_fields = ['id_sala', 'criado_em', 'atualizado_em']
 
 

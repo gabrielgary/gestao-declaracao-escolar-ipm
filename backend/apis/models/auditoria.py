@@ -77,7 +77,7 @@ class Historico(models.Model):
         blank=True,
         verbose_name='Aluno',editable=False
     )
-    tipo_accao = models.CharField(max_length=255, verbose_name='Ação Restalizada',editable=False)
+    tipo_accao = models.TextField(verbose_name='Ação Realizada', editable=False)
     dados_anteriores = models.JSONField(null=True, blank=True, verbose_name='Dados Anteriores',editable=False)
     dados_novos = models.JSONField(null=True, blank=True, verbose_name='Dados Novos',editable=False)
     data_hora = models.DateTimeField(auto_now_add=True, verbose_name='Data/Hora',editable=False)

@@ -14,13 +14,14 @@ export default function FooterSection() {
                     </div>
  
 
+                      
                     <div className={style.Col}>
                         <h4>Cursos</h4>
                         <ul className={style.LinksList}>
-                            <li><a href="#">Informática de Gestão</a></li>
-                            <li><a href="#">Contabilidade de Gestão</a></li>
-                            <li><a href="#">Gestão Empresarial</a></li>
-                            <li><a href="#">Informática</a></li>
+                            <li>Informática de Gestão</li>
+                            <li>Contabilidade de Gestão</li>
+                            <li>Gestão Empresarial</li>
+                            <li>Informática</li>
                         </ul>
                     </div>
  

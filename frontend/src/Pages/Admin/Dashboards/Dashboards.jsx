@@ -173,7 +173,7 @@ export default function Dashboards() {
                     {/* Gráfico 2: Engajamento de Usuários (PieChart) */}
                     <div className={style.PerformanceChart}>
                         <div className={style.ChartHeader}>
-                            <h3>Engajamento de Usuários</h3>
+                            <h3>Acessos dos Usuários</h3>
                             <p className="text-sm text-gray-500">Distribuição por Tipo</p>
                         </div>
                         <div className="h-[250px] w-full flex items-center justify-center mt-4">
@@ -276,7 +276,7 @@ export default function Dashboards() {
 
                     <div className={style.RecentAudit}>
                         <div className={style.TableHeaderAction}>
-                            <h3>Auditoria Recente</h3>
+                            <h3>Actividades Recente</h3>
                         </div>
                         <div className={style.AuditList}>
                             {recent_audit_logs?.map((log) => (

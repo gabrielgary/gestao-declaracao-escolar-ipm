@@ -45,12 +45,12 @@ class HistoricoSerializer(serializers.ModelSerializer):
     def get_usuario_nome(self, obj):
         if obj.id_funcionario: return obj.id_funcionario.nome_completo
         if obj.id_aluno: return obj.id_aluno.nome_completo
-        return "Sistema"
+        return "Administrador"
 
     def get_usuario_tipo(self, obj):
         if obj.id_funcionario: return "Funcionário"
         if obj.id_aluno: return "Aluno"
-        return "Sistema"
+        return "Administrador"
 
     def get_usuario_img(self, obj):
         request = self.context.get('request')

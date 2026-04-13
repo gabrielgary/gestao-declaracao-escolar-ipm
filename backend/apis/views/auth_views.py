@@ -101,7 +101,7 @@ def login_view(request):
                 user.save()
             else:
                 return Response(
-                    {'error': 'Senha incorreta'},
+                    {'error': 'Dados incorretos'},
                     status=status.HTTP_401_UNAUTHORIZED
                 )
                 
@@ -134,7 +134,7 @@ def login_view(request):
                 user.save()
             else:
                 return Response(
-                    {'error': 'Senha incorreta'},
+                    {'error': 'Dados Incorretos'},
                     status=status.HTTP_401_UNAUTHORIZED
                 )
                 
@@ -158,7 +158,7 @@ def login_view(request):
                 user.save()
             else:
                 return Response(
-                    {'error': 'Senha incorreta'},
+                    {'error': 'Dados Incorrecta'},
                     status=status.HTTP_401_UNAUTHORIZED
                 )
         else:
@@ -208,7 +208,7 @@ def login_view(request):
         
     except (Funcionario.DoesNotExist, Aluno.DoesNotExist, Encarregado.DoesNotExist):
         return Response(
-            {'error': 'Usuário não encontrado'},
+            {'error': 'Dados Incorrectos'},
             status=status.HTTP_404_NOT_FOUND
         )
     except Exception as e:
