@@ -8,7 +8,7 @@ from unfold.decorators import display, action
 from django.urls import path
 from django.shortcuts import redirect
 from django.contrib import messages
-from apis.views.admin_views import GradeLaunchView
+from apis.views.admin_views import GradeLaunchView, GradeLaunch13View
 
 from apis.models import (
     # Usuários
@@ -319,12 +319,21 @@ class NotaAdmin(ModelAdmin):
     """
     
     # Unfold Actions
+    @action(description="Lançamento em Massa", icon="playlist_add")
     def lancar_notas_action(self, request):
         return redirect('admin:nota_launch')
-        
-    lancar_notas_action.short_description = "Lançamento em Massa"
-    lancar_notas_action.icon = "playlist_add"
+    
     lancar_notas_action.attrs = {'class': 'bg-primary-600 text-white hover:bg-primary-700'}
+    
+    def lancar_notas13_action(self, request):
+        return redirect('admin:nota_launch_13')
+        
+    lancar_notas13_action.short_description = "Notas 13ª Classe"
+    lancar_notas13_action.icon = "grade"
+    lancar_notas13_action.attrs = {'class': 'bg-indigo-600 text-white hover:bg-indigo-700'}
+
+    # Registrar ações no topo da página (Changelist)
+    changelist_actions = ["lancar_notas_action", "lancar_notas13_action"]
 
     actions_list = [] # Actions na lista (por linha)
     actions_row = [] # Actions na row selection
@@ -340,6 +349,7 @@ class NotaAdmin(ModelAdmin):
         urls = super().get_urls()
         custom_urls = [
             path('lancamento-massivo/', self.admin_site.admin_view(GradeLaunchView.as_view()), name='nota_launch'),
+            path('lancamento-13-classe/', self.admin_site.admin_view(GradeLaunch13View.as_view()), name='nota_launch_13'),
         ]
         return custom_urls + urls
 

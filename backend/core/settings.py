@@ -377,6 +377,11 @@ UNFOLD = {
                         "link": lambda request: "/admin/apis/nota/lancamento-massivo/",
                     },
                     {
+                        "title": "Notas 13ª Classe",
+                        "icon": "star",
+                        "link": lambda request: "/admin/apis/nota/lancamento-13-classe/",
+                    },
+                    {
                         "title": "Registo de Notas",
                         "icon": "checklist",
                         "link": lambda request: "/admin/apis/nota/",
