@@ -9,14 +9,16 @@ from apis.serializers.configuracao_serializers import ConfiguracaoSistemaSeriali
 class AlunoReportSerializer(serializers.ModelSerializer):
     turma_codigo = serializers.CharField(source='id_turma.codigo_turma', read_only=True)
     id_classe = serializers.IntegerField(source='id_turma.id_classe.id_classe', read_only=True)
+    classe_nivel = serializers.IntegerField(source='id_turma.id_classe.nivel', read_only=True)
     id_curso = serializers.IntegerField(source='id_turma.id_curso.id_curso', read_only=True)
+    curso_nome = serializers.CharField(source='id_turma.id_curso.nome_curso', read_only=True)
     
     class Meta:
         model = Aluno
         fields = [
             'id_aluno', 'nome_completo', 'numero_bi', 'genero', 
-            'id_turma', 'turma_codigo', 'id_classe', 'id_curso',
-            'status_aluno', 'modo_user'
+            'id_turma', 'turma_codigo', 'id_classe', 'classe_nivel',
+            'id_curso', 'curso_nome', 'status_aluno', 'modo_user'
         ]
 
 class SolicitacaoReportSerializer(serializers.ModelSerializer):

@@ -329,8 +329,8 @@
 <div class="grade-launch-container">
 
     <div class="page-header">
-        <h1>Lançamento de Notas em Massa</h1>
-        <p>Gerencie as notas dos alunos filtrando por turma, disciplina e avaliação.</p>
+        <h1>{{ title|default:"Lançamento de Notas em Massa" }}</h1>
+        <p>{% if is_13_view %}Gestão de notas exclusiva para alunos activos da 13ª classe.{% else %}Gerencie as notas dos alunos filtrando por turma, disciplina e avaliação.{% endif %}</p>
     </div>
 
     {% if messages %}
@@ -374,6 +374,7 @@
                     {% endif %}
                 </div>
 
+                {% if not is_13_view %}
                 <div class="form-group">
                     <label for="tipo_avaliacao">Tipo de Avaliação</label>
                     <select name="tipo_avaliacao" id="tipo_avaliacao" required>
@@ -394,6 +395,15 @@
                         {% endfor %}
                     </select>
                 </div>
+                {% else %}
+                <!-- Na 13ª classe, estes valores são fixos/omitidos pois replicamos para todos -->
+                <div class="form-group">
+                    <label>Configuração</label>
+                    <div style="padding: 0.75rem; background: var(--bg-page); border-radius: 8px; font-size: 0.875rem; color: var(--text-muted); border: 1px dashed var(--border-color);">
+                        Aplicação automática em todos os trimestres e provas.
+                    </div>
+                </div>
+                {% endif %}
             </div>
 
             <div class="action-buttons">
@@ -412,8 +422,10 @@
             <!-- Hidden inputs to maintain context -->
             <input type="hidden" name="id_turma" value="{{ selected_turma }}">
             <input type="hidden" name="id_disciplina" value="{{ selected_disciplina }}">
+            {% if not is_13_view %}
             <input type="hidden" name="tipo_avaliacao" value="{{ selected_tipo }}">
             <input type="hidden" name="trimestre" value="{{ selected_trimestre }}">
+            {% endif %}
 
             <div class="table-responsive">
                 <table class="students-table">

@@ -57,9 +57,9 @@ const Reports = () => {
         const fetchMeta = async () => {
             try {
                 const [classesRes, turmasRes, cargosRes] = await Promise.all([
-                    api.get('/classes/'),
-                    api.get('/turmas/'),
-                    api.get('/cargos/')
+                    api.get('classes/'),
+                    api.get('turmas/'),
+                    api.get('cargos/')
                 ]);
                 setMetadata({
                     classes: classesRes.data.results || classesRes.data,
@@ -80,12 +80,12 @@ const Reports = () => {
             try {
                 let endpoint = '';
                 switch(activeTab) {
-                    case 'solicitacoes': endpoint = '/reports/data/solicitacoes/'; break;
-                 case 'mensal': endpoint = `/reports/mensal/?format=json&mes=${filters.mes}&ano=${filters.ano}`; break;
-                    case 'alunos': endpoint = '/reports/data/alunos/'; break;
-                    case 'funcionarios': endpoint = '/reports/data/funcionarios/'; break;
-                    case 'auditoria': endpoint = '/reports/data/auditoria/'; break;
-                    default: endpoint = '/reports/data/solicitacoes/';
+                    case 'solicitacoes': endpoint = 'reports/data/solicitacoes/'; break;
+                    case 'mensal': endpoint = `reports/mensal/?format=json&mes=${filters.mes}&ano=${filters.ano}`; break;
+                    case 'alunos': endpoint = 'reports/data/alunos/'; break;
+                    case 'funcionarios': endpoint = 'reports/data/funcionarios/'; break;
+                    case 'auditoria': endpoint = 'reports/data/auditoria/'; break;
+                    default: endpoint = 'reports/data/solicitacoes/';
                 }
                 const response = await api.get(endpoint);
                 setRawData(Array.isArray(response.data) ? response.data : []);
@@ -109,11 +109,11 @@ const Reports = () => {
                 if (filters.status && item.status_solicitacao !== filters.status) return false;
             }
             if (activeTab === 'alunos') {
-                if (filters.classe && item.id_turma?.id_classe !== parseInt(filters.classe)) return false;
-                if (filters.turma && item.id_turma?.id_turma !== parseInt(filters.turma)) return false;
+                if (filters.classe && item.id_classe !== parseInt(filters.classe)) return false;
+                if (filters.turma && item.id_turma !== parseInt(filters.turma)) return false;
             }
             if (activeTab === 'funcionarios') {
-                if (filters.cargo && item.id_cargo?.id_cargo !== parseInt(filters.cargo)) return false;
+                if (filters.cargo && item.id_cargo !== parseInt(filters.cargo)) return false;
             }
             return true;
         });
@@ -190,13 +190,18 @@ const Reports = () => {
             rows = filteredData.map(m => [m.tipo, m.quantidade, `${(m.total || 0).toLocaleString()} Kz`]);
         } else if (activeTab === 'alunos') {
             columns = ["Nome Completo", "Bilhete de Identidade (BI)", "Género", "Turma Atual", "Curso Académico"];
-            rows = filteredData.map(a => [a.nome_completo, a.numero_bi, a.genero, a.id_turma?.codigo_turma || '-', a.id_turma?.id_curso?.nome_curso || '-']);
+            rows = filteredData.map(a => [a.nome_completo, a.numero_bi, a.genero, a.turma_codigo || '-', a.curso_nome || '-']);
         } else if (activeTab === 'funcionarios') {
             columns = ["Nome Completo", "Cargo / Função", "Contacto Telefónico", "Estado"];
-            rows = filteredData.map(f => [f.nome_completo, f.id_cargo?.nome_cargo || '-', f.telefone, f.status_funcionario]);
-        } else {
-            columns = ["Evento", "Utilizador", "Data e Hora", "Módulo"];
-            rows = filteredData.map(item => [item.tipo_accao, item.usuario_nome, new Date(item.data_hora).toLocaleString(), item.detalhes || '-']);
+            rows = filteredData.map(f => [f.nome_completo, f.cargo_nome || '-', f.telefone, f.status_funcionario]);
+        } else if (activeTab === 'auditoria') {
+            columns = ["Acção / Evento", "Utilizador", "Data e Hora", "Alterações"];
+            rows = filteredData.map(item => [
+                item.tipo_accao, 
+                item.usuario_nome, 
+                new Date(item.data_hora).toLocaleString(), 
+                item.dados_novos ? JSON.stringify(item.dados_novos).substring(0, 50) + '...' : '-'
+            ]);
         }
 
         autoTable(doc, {

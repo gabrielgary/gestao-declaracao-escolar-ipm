@@ -187,7 +187,7 @@ class DocumentService:
             'turma': turma_frequentada,
             'classe': solicitacao.classe_solicitada or (turma_frequentada.id_classe if turma_frequentada else None),
             'curso': (solicitacao.id_aluno.id_turma.id_curso if solicitacao.id_aluno.id_turma else None) or (turma_frequentada.id_curso if turma_frequentada else None),
-            'site_url': settings.SITE_URL if hasattr(settings, 'settings.SITE_URL') else 'http://localhost:5173'
+            'site_url': settings.SITE_URL if hasattr(settings, 'settings.SITE_URL') else 'http://localhost:5173' #alterar url no momento de produção
         }
         
         # Injetar Assinatura e Carimbo Oficiais (Caminhos Fixos conforme solicitado)
