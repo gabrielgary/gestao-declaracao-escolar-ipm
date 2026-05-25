@@ -24,6 +24,7 @@ if not SECRET_KEY:
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS','').split(' ')
+CSRF_TRUSTED_ORIGINS = ['https://gestao-declaracao-escolar-ipm.onrender.com']
 #ALLOWED_HOSTS=['https://gestao-declaracao-escolar-ipm.onrender.com/']
 SITE_URL = os.environ.get('SITE_URL', 'https://ipm-o29v.onrender.com/')
 
