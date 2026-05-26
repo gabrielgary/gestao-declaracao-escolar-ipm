@@ -33,11 +33,12 @@
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
 
-    /* Delicate border and shadow */
+    /* Delicate border and shadow 
     box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    0 25px 50px -12px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
     border: 0px solid rgba(255, 255, 255, 0.3);
+    */
 }
 
 :global(body.dark-mode) .loaderContent {

@@ -6,12 +6,12 @@ import { useScrollReveal } from '../../../../../hooks/useScrollReveal';
 
 export default function AboutSection() {
     const sectionRef = useScrollReveal();
-
+ 
     return (
         <section className={style.AboutSection} ref={sectionRef}>
             <div className={`${style.Container} reveal`}>
                 {/* Image Col */}
-                <div className={`${style.ImageCol} reveal-left`}>
+                <div className={`${style.ImageCol} `}>
                     <img src={aboutImg} alt="Sobre Nós" className={style.MainImage} />
                     <div className={style.FloatingBadge}>
                         <div className={style.BadgeIcon}>
@@ -25,7 +25,7 @@ export default function AboutSection() {
                 </div>
 
                 {/* Text Col */}
-                <div className={`${style.TextCol} reveal-right`}>
+                <div className={`${style.TextCol}`}>
                     <span className={style.SubTitle}>Sobre Nós</span>
                     <h2 className={style.Title}>Quem Somos?</h2>
                     <p className={style.Description}>

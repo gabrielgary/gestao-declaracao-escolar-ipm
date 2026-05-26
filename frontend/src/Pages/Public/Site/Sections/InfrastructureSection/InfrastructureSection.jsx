@@ -13,7 +13,7 @@ export default function InfrastructureSection() {
             <div className={style.OverlayPattern}></div>
             <div className={style.Container}>
 
-                <div className={`${style.TextContent} reveal-left`}>
+                <div className={`${style.TextContent} `}>
                     <h2>Infraestruturas e Recursos</h2>
                     <p>
                         O IPM é uma instituição com várias vantagens. Nós instruimos, e os nossos alunos aplicam isso no mundo real.
@@ -40,7 +40,7 @@ export default function InfrastructureSection() {
                     </Link>
                 </div>
 
-                <div className={`${style.ImageGrid} reveal-right delay-300`}>
+                <div className={`${style.ImageGrid}  delay-300`}>
                     <img src={img1} alt="Laboratório" />
                     <img src={img2} alt="Biblioteca" />
                 </div>

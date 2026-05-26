@@ -10,7 +10,7 @@ export default function FooterSection() {
                         <p className={style.Description}>
                             Excelência no ensino e formação profissional. Preparando o futuro de Angola, hoje.
                         </p>
-                        <p className={style.Description}>Tel: +244 934 519 321<br />Email: ipm@gmail.com</p>
+                        <p className={style.Description}>Tel: +244 999 999 999<br />Email: ipm@gmail.com</p>
                     </div>
  
 
@@ -28,7 +28,7 @@ export default function FooterSection() {
                 </div>
 
                 <div className={style.BottomRow}>
-                    <p>&copy; 2025 Instituto Politécnico do Maiombe. Todos os direitos reservados.</p>
+                    <p>&copy; 2026 Instituto Politécnico do Maiombe. Todos os direitos reservados.</p>
                    
                 </div>
             </div>
