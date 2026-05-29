@@ -381,8 +381,8 @@
 .Pagination button {
     min-width: 36px;
     height: 36px;
-    border: 1px solid var(--border-color);
-    background: var(--bg-card);
+    border: 1px dashed var(--primary);
+  
     border-radius: var(--radius-sm);
     font-size: 0.875rem;
     font-weight: 500;
@@ -403,7 +403,11 @@
     opacity: 0.4;
     cursor: not-allowed;
 }
-
+.Pagination .currentPageBTN{
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: white;
+    border-color: transparent;
+}
 .Pagination .ActivePage {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: white;

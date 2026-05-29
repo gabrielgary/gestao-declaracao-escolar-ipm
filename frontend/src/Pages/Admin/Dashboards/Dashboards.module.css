@@ -1,307 +1,318 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
 .GridCards {
-    display: grid;
-    /* Improved grid for responsiveness and alignment */
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    /* Breathing room */
-    margin-bottom: 2rem;
-    padding: 10px ;
-    align-items: stretch;
-    /* Ensure cards utilize full height */
+  display: grid;
+  /* Improved grid for responsiveness and alignment */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  /* Breathing room */
+  margin-bottom: 2rem;
+  padding: 10px;
+  align-items: stretch;
+  /* Ensure cards utilize full height */
 }
 
 /* Charts */
 .ChartsRow {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    /* Better ratio for charts */
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    align-items: stretch;
-    padding: 5px 10px;
-    /* Align chart containers heights */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* Better ratio for charts */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
+  padding: 5px 10px;
+  /* Align chart containers heights */
 }
 
 .RevenueChart,
 .PerformanceChart {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    box-shadow: var(--shadow-md);
-    transition: box-shadow var(--transition-base), border-color var(--transition-base);
-    display: flex;
-    flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 
 .RevenueChart:hover,
 .PerformanceChart:hover {
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent-indigo);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-indigo);
 }
 
 .ChartHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
 }
 
 .ChartHeader h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
 }
 
 .ChartHeader h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--accent-indigo);
-    letter-spacing: -0.025em;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-indigo);
+  letter-spacing: -0.025em;
 }
 
 .DateTabs {
-    background-color: var(--bg-input);
-    padding: 0.25rem;
-    border-radius: var(--radius-sm);
-    display: flex;
-    gap: 0.25rem;
+  background-color: var(--bg-input);
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 0.25rem;
 }
 
 .DateTabs button {
-    border: none;
-    background: transparent;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all var(--transition-fast);
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .DateTabs button:hover {
-    color: var(--text-main);
-    background-color: rgba(255, 255, 255, 0.5);
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .DateTabs button.Active {
-    background-color: var(--bg-card);
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
+  background-color: var(--bg-card);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Table */
 /* Table */
 .BottomGrid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
-    margin: 1.5rem 1rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 1rem 1rem 1rem;
 }
 
+ 
 .RecentActivity,
 .RecentAudit {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
 }
 
 .AuditList {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .AuditItem {
-    display: flex;
-    gap: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .AuditItem:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .AuditIcon {
-    padding-top: 0.25rem;
+  padding-top: 0.25rem;
 }
 
 .Dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-soft);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
 .AuditContent {
-    flex: 1;
+  flex: 1;
 }
 
 .AuditText {
-    font-size: 0.85rem;
-    color: var(--text-main);
-    line-height: 1.4;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  line-height: 1.4;
 }
 
 .AuditTime {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 2px;
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
 
 .EmptyText {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    padding: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 1rem;
 }
 
 .TableHeaderAction {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .TableHeaderAction h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-main);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 
 .SearchBarSmall {
-    background-color: var(--bg-input);
-    border: 1px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    width: 260px;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 260px;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .SearchBarSmall:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-soft);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
 .SearchBarSmall svg {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .SearchBarSmall input {
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 0.85rem;
-    width: 100%;
-    color: var(--text-main);
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  width: 100%;
+  color: var(--text-main);
 }
 
 .TableContainer {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th {
-    text-align: left;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 1rem;
-    border-bottom: 2px solid var(--border-color);
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
 td {
-    padding: 1rem;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 400;
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color var(--transition-fast);
+  padding: 1rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-fast);
 }
 
 tr:hover td {
-    background-color: var(--primary-light);
+  background-color: var(--primary-light);
 }
 
 .StatusBadgeBlue {
-    background-color: var(--primary-soft);
-    /* More subtle */
-    color: var(--primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 600;
-    border: 1px solid var(--primary-light);
+  background-color: var(--primary-soft);
+  /* More subtle */
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--primary-light);
 }
 
 .StatusBadgeGreen {
-    background-color: var(--primary-soft);
-    color: var(--primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 600;
-    border: 1px solid var(--primary-light);
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--primary-light);
 }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
 
 @media (max-width: 1280px) {
-    .GridCards {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 5px;
-    }
+  .GridCards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5px;
+  }
 }
 
 @media (max-width: 1024px) {
-    .ChartsRow {
-        grid-template-columns: 1fr;
-    }
+  .ChartsRow {
+    grid-template-columns: 1fr;
+  }
 
-    .RecentActivity {
-        overflow-x: hidden;
-    }
+  .RecentActivity {
+    overflow-x: hidden;
+  }
 
-    .TableContainer {
-        overflow-x: auto;
-    }
+  .TableContainer {
+    overflow-x: auto;
+  }
 }
 
 @media (max-width: 768px) {
-    .GridCards {
-        grid-template-columns: 1fr;
-    }
+  .GridCards {
+    grid-template-columns: 1fr;
+  }
 
-    .SearchBarSmall {
-        width: 100%;
-    }
+  .SearchBarSmall {
+    width: 100%;
+  }
 
-    .TableHeaderAction {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
+  .TableHeaderAction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .BottomGrid {
+  display: grid;
+  grid-template-columns: 2fr;
+  gap: 1.5rem;
+  margin: 1.5rem 1rem 1rem 1rem;
+}
 }

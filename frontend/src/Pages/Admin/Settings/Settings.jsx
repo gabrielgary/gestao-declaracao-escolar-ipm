@@ -177,7 +177,7 @@ export default function Settings() {
 
     const tabs = [
         { id: 'general', label: 'Instituição', icon: <FaBuilding /> },
-        { id: 'appearance', label: 'Cores e Marca', icon: <FaPalette /> },
+        { id: 'appearance', label: 'Temas', icon: <FaPalette /> },
         { id: 'backup', label: 'Base de Dados', icon: <FaDatabase /> },
     ]
 
@@ -366,9 +366,11 @@ export default function Settings() {
                                                 <span>{(bkp.size / 1024 / 1024).toFixed(2)} MB • {new Date(bkp.created_at).toLocaleDateString()}</span>
                                             </div>
                                             <div className={style.BkpActions}>
-                                                <button onClick={() => handleRestoreBackup(bkp.filename)}>Restaurar</button>
+                                                <button onClick={() => handleRestoreBackup(bkp.filename)}style={{
+                                                    color:'var(--primary)'
+                                                }}>Restaurar</button>
                                                 <button onClick={() => window.open(bkp.url, '_blank')} className={style.DownloadBtn}>Baixar</button>
-                                                <button onClick={() => handleDeleteBackup(bkp.filename)} className={style.DeleteBtn}><FaTrash /></button>
+                                                <button onClick={() => handleDeleteBackup(bkp.filename)} className={style.DeleteBtn }><FaTrash /></button>
                                             </div>
                                         </div>
                                     ))}

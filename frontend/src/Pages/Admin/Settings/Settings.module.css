@@ -324,12 +324,15 @@
     color: var(--primary);
 }
 
-.DeleteBtn {
-    color: #ef4444;
+.DeleteBtn svg {
+    color: #ff7575;
 }
+
+
 
 @media (max-width: 900px) {
     .SettingsContainer {
+   
         grid-template-columns: 1fr;
     }
     

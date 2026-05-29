@@ -72,9 +72,9 @@ export default function DataTable({
                         <div className={style.FilterDropdown}>
                             <IoFilterSharp />
                             <select value={filterDays} onChange={(e) => setFilterDays(e.target.value)}>
-                                <option value={7}>Last 7 days</option>
-                                <option value={30}>Last 30 days</option>
-                                <option value={90}>Last 90 days</option>
+                                <option value={7}>Últimos 7 dias</option>
+                                <option value={30}>Últimos 30 dias</option>
+                                <option value={90}>Últimos 90 dias</option>
                             </select>
                         </div>
                     </div>
@@ -200,11 +200,11 @@ export default function DataTable({
                                 <button
                                     key={index}
                                     onClick={() => handlePageChange(pageNumber)}
-                                    className={currentPage === pageNumber ? style.ActivePage : ''}
+                                    className={currentPage === pageNumber ? style.ActivePage : 'currentPageBTN'}
                                 >
                                     {pageNumber}
                                 </button>
-                            );
+                            ); 
                         })}
 
                         {totalPages > 5 && (

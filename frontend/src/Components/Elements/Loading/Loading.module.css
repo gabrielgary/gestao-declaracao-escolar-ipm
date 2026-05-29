@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     /* Soft, sophisticated background gradient */
-    background: radial-gradient(circle at 50% 50%, #f1f5f9 0%, #cbd5e1 100%);
+    background: rgb(255, 255, 255);
     z-index: 10000;
 }
 
