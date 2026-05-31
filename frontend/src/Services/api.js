@@ -6,7 +6,7 @@ import axios from 'axios';
  * Em desenvolvimento, geralmente é http://localhost:8000/api/v1/
  */
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1/',
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'https://gestao-declaracao-escolar-ipm.onrender.com/api/v1/',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -77,5 +77,5 @@ api.interceptors.response.use(
     }
 );
 
-export const MEDIA_URL = import.meta.env.VITE_MEDIA_URL || 'http://localhost:8000/media/';
+export const MEDIA_URL = import.meta.env.VITE_MEDIA_URL || 'https://gestao-declaracao-escolar-ipm.onrender.com/media/';
 export default api;
