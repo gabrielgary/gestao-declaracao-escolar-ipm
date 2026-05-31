@@ -1,144 +1,117 @@
-# 🎓 Sistema Integrado de Gestão Escolar (SIGE)
 
-![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-blue)
-![Versão](https://img.shields.io/badge/Versão-1.0.0-green)
-![Licença](https://img.shields.io/badge/Licença-Proprietária-red)
+# 🎓 SIGE-Doc | Automated Academic Document Management System
 
-## 📋 Sobre o Projeto
+![Project Status](https://img.shields.io/badge/Status-In_Development-blue?style=for-the-badge)
+![Architecture](https://img.shields.io/badge/Architecture-Clean_/_Layered-orange?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-Digital_Signature-red?style=for-the-badge)
 
-O **Sistema Integrado de Gestão Escolar (SIGE)** é uma solução empresarial robusta e escalável desenvolvida para modernizar e automatizar a administração de instituições de ensino. Focado na eficiência operacional e na experiência do usuário, o sistema unifica processos académicos, financeiros e administrativos numa interface moderna e responsiva.
+**SIGE-Doc** is an enterprise-grade software solution designed to completely digitalize and automate the academic document issuance workflow (Enrollment Certificates, Transcripts, and official Declarations) in educational institutions. 
 
-A plataforma serve múltiplos perfis de usuários — desde administradores e funcionários até professores, alunos e encarregados de educação — garantindo transparência e agilidade na troca de informações.
-
----
-
-## 🚀 Principais Funcionalidades
-
-### 🏛️ Módulo Administrativo
-*   **Gestão de Recursos Humanos**: Cadastro completo de funcionários, atribuição de cargos e controlo de acessos.
-*   **Gestão Académica**: Controlo de turmas, matrículas, pautas e histórico escolar.
-*   **Fluxo de Documentos Digitais**: Solicitação, pagamento e emissão de documentos oficiais (Declarações, Certificados) com assinatura digital.
-*   **Biblioteca Digital**: Gestão de acervo, empréstimos e catálogo online para estudantes.
-
-### 💰 Módulo Financeiro
-
-*   **Integração com Multicaixa Express**: Pagamentos automáticos e reconciliação bancária.
-*   **Emissão de RUP**: Geração de Referência Única de Pagamento para depósitos e transferências.
-*   **Relatórios Financeiros**: Dashboards de receitas e inadimplência.
-
-### 🎓 Portal do Estudante & Encarregado
-*   **Acompanhamento em Tempo Real**: Notas, faltas e ocorrências disciplinares.
-*   **Secretaria Virtual**: Solicitação de documentos sem necessidade de deslocação física.
-*   **Material Didático**: Acesso a recursos da biblioteca e conteúdos de apoio.
-
-### 🤖 Assistente Virtual Inteligente - Yasmin
-*   **Suporte 24/7**: Chatbot integrado para tirar dúvidas de alunos e pais.
-*   **Automação**: Auxílio na navegação e execução de tarefas dentro do sistema.
+By eliminating physical queues and bureaucracy, the platform enables students to request, pay for, and receive authenticated digital documents securely from anywhere.
 
 ---
 
-## 🏗️ Arquitetura e Tecnologias
+## 🎯 The Problem vs. The Engineering Solution
 
-O sistema foi construído seguindo uma arquitetura moderna de **Microsserviços/Monolito Modular**, separando claramente o Frontend do Backend via API RESTful.
-
-### 🎨 Frontend (Client-Side)
-Desenvolvido para oferecer uma experiência de usuário (UX) fluida e "Premium".
-*   **Core**: React.js (Component-Based Architecture).
-*   **Estilização**: CSS Modules com Design System personalizado (Temas Dark/Light inspirados no Google Gemini).
-*   **Gráficos**: Recharts para visualização de dados analíticos.
-*   **Comunicação**: Axios para consumo de API.
-
-### ⚙️ Backend (Server-Side)
-Robustez e segurança no processamento de dados.
-*   **Framework**: Django (Python) & Django REST Framework.
-*   **Base de Dados**: PostgreSQL (Relacional).
-*   **Autenticação**: JWT (JSON Web Tokens) & Custom Permission Logic.
-*   **Segurança**: Hashing de senhas avançado (PBKDF2) e proteção CSRF/CORS.
+*   **The Bureaucracy (Old Way):** Massive physical lines at the school registry, manual data verification, 7-15 days processing time, and vulnerability to document forgery.
+*   **The SIGE-Doc Way:** On-demand request via Student Portal, instant payment processing via **Angolan Multicaixa Express / RUP**, automated PDF generation with an unforgeable cryptographic **Digital Signature and QR Code Validation**.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🚀 Core Features
+
+### 📄 Document Generation Engine
+*   **Dynamic Templating:** Seamless generation of official transcripts and school certificates using strict database records.
+*   **Anti-Forgery Security:** Every generated PDF is embedded with a unique cryptographic hash and a verification watermarking layer.
+*   **Public Validator Endpoint:** A secure, public-facing portal where third-party entities (employers or other universities) can scan the document's QR Code to verify its authenticity in real-time.
+
+### 🏦 Financial Gateway & Automation
+*   **Local Payment Integration:** Support for **Multicaixa Express** API and **RUP** (Referência Única de Pagamento) generation.
+*   **Asynchronous Verification:** The system automatically unlocks the document download link immediately after the banking webhook confirms the transaction.
+
+### 🧠 Intelligent Virtual Assistant (Yasmin)
+*   An integrated NLP-driven chatbot acting as a 24/7 helpdesk to assist students and parents with document requirements and application statuses.
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+The system is built on **Clean Architecture** and **Layered Design** principles, ensuring strict separation of concerns, high testability, and independence from external frameworks.
+
+*   **Backend:** Django & Django REST Framework (Python) - Robust business logic, security middleware, and secure ORM.
+*   **Frontend:** React.js & TypeScript - Premium, highly accessible UI/UX inspired by dark/light data-dense dashboards.
+*   **Database:** PostgreSQL - Advanced relational schema modeling for complex academic history and audit logs.
+*   **Infrastructure:** Linux (Ubuntu Server 24.04 LTS) - Virtualized environment managed with custom automated Bash scripts.
+
+---
+
+## 📂 Project Structure (Clean Pattern)
 
 ```bash
 gestao-escolar-fim-course/
-├── backend/                # API e Lógica de Negócios (Django)
-│   ├── apis/               # Aplicações do projeto (Models, Views, Serializers)
-│   │   ├── models/         # Definição de Dados (ORM)
-│   │   ├── views/          # Controladores (Logica de Endpoints)
-│   │   └── services/       # Regras de Negócio Isoladas
-│   ├── core/               # Configurações do Projeto (Settings, URLs)
-│   └── manage.py           # CLI do Django
-│
-├── frontend/               # Interface do Usuário (React)
-│   ├── src/
-│   │   ├── Components/     # Componentes Reutilizáveis (UI Kit)
-│   │   ├── Context/        # Gestão de Estado Global (Auth, Theme)
-│   │   ├── Pages/          # Telas do Sistema (Admin, Student, Parent)
-│   │   └── Services/       # Integração com API
-│   └── package.json        # Dependências JS
-│
-└── Yasmin/                 # Módulo de Inteligência Artificial
+├── backend/                # Server-Side API & Domain Logic
+│   ├── apis/               # Interface Adapters (Serializers, ViewSets, Endpoints)
+│   ├── services/           # Pure Business Logic Layer (Clean Code execution)
+│   ├── models/             # Database Schemas & PostgreSQL Entities
+│   └── core/               # Framework Configurations (Settings, Routing)
+├── frontend/               # Client-Side Interface (React.js)
+│   ├── src/Components/     # Reusable UI Design System
+│   ├── src/Context/        # Global State (Auth RBAC, Theme management)
+│   └── src/Services/       # API Consumer Layer (Axios configuration)
+└── Yasmin/                 # Autonomous AI Assistant Module
+
 ```
 
 ---
 
-## 🔧 Guia de Instalação (Desenvolvimento)
+## 🔧 Local Development Quickstart
 
-### Pré-requisitos
-*   Node.js v18+
-*   Python 3.10+
-*   PostgreSQL
+### Prerequisites
 
-### 1. Configuração do Backend
+* Node.js (v18+)
+* Python (3.10+)
+* PostgreSQL Server running on Ubuntu/Local machine
+
+### 1. Spin up the Backend
+
 ```bash
-# Navegue até a pasta do backend
 cd backend
-
-# Crie um ambiente virtual
 python -m venv venv
-# Ative o ambiente (Windows)
-venv\Scripts\activate
-
-# Instale as dependências
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
-
-# Configure o .env (baseado no .env.example)
-
-# Execute as migrações
 python manage.py migrate
-
-# Inicie o servidor
 python manage.py runserver
+
 ```
 
-### 2. Configuração do Frontend
+### 2. Launch the Frontend
+
 ```bash
-# Navegue até a pasta do frontend
 cd frontend
-
-# Instale as dependências
 npm install
-
-# Inicie o servidor de desenvolvimento
 npm run dev
+
 ```
 
 ---
 
-## 🔒 Segurança
+## 🔒 Security Compliance
 
-*   Controle de acesso baseado em funções (RBAC) para Admin, Funcionários, Alunos e Encarregados.
-*   Assinatura digital em documentos gerados.
-*   Logs de auditoria para rastreabilidade de ações críticas.
+* **RBAC (Role-Based Access Control):** Granular permission layers ensuring only authorized registrars can approve critical requests.
+* **Full Audit Trail:** Immutable system logs tracking exactly who generated, approved, or revoked any document.
+* **Data Protection:** Password hashing utilizing advanced PBKDF2 algorithms and strict CORS/CSRF configurations.
 
 ---
 
-## 📞 Suporte
+## 👨‍💻 Author
 
-Para suporte técnico ou dúvidas sobre a implementação, contacte a equipa de desenvolvimento.
-Tel\Whatsapp: 934519321
-email: gabrielpedroaurelio1@gmail.com
+**Gabriel Pedro Aurélio**
+*Back-End Engineer | Clean Architecture & Linux Enthusiast*
+
 ---
-*Desenvolvido por Gabriel Pedro Aurélio.*
-## Ferramenta de IA usada
-Antigravity Agent
+
+*Developed with technical rigor to solve real-world educational infrastructure bottlenecks.*
+
+```
+
+```
