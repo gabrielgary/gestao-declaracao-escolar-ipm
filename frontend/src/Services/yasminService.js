@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const YASMIN_API_URL = 'https://yasmin-j7ie.onrender.com/;
+const YASMIN_API_URL = import.meta.env.VITE_YASMIN_API_URL
 
 const yasminApi = axios.create({
     baseURL: YASMIN_API_URL,
