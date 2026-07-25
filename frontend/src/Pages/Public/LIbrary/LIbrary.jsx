@@ -13,11 +13,11 @@ import axios from 'axios';
 // Instance for public requests without Auth Token
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
   ? 'http://127.0.0.1:8000/api/v1/' 
-  : 'https://piih.apedrodevelopers.ao/api/v1/';
+  : 'https://gestao-declaracao-escolar-ipm.onrender.com/api/v1/';
 
 const MEDIA_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://127.0.0.1:8000/media'
-  : 'https://piih.apedrodevelopers.ao/media';
+  : 'https://gestao-declaracao-escolar-ipm.onrender.com/media';
 
 const publicApi = axios.create({
   baseURL: API_BASE,
